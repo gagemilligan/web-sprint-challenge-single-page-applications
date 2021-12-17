@@ -1,4 +1,5 @@
-import react from "react"
+import React from "react"
+import { Switch, useParams, Route } from "react-router-dom"
 import Finished from "./components/Finished"
 
 const Order = (props) => {
@@ -7,7 +8,7 @@ const Order = (props) => {
     const {model} = useParams()
 
     return (
-        <div>
+        <div className = "orderForm">
             Order form for model {model}
             <form>
                 <label>
@@ -35,9 +36,37 @@ const Order = (props) => {
                         <option value = "Olive oil">Olive oil</option>
                     </select>
                 </label>
+                <label>
+                    <select name = "Sauce" id = "Sauce">
+                    <option value = "House Blend">House Blend</option>
+                    <option value = "Extra Cheese">Extra Cheese</option>
+                    </select>
+                </label>
+                <label>
+                    <select name = "Toppings" id = "Toppings">
+                    <option value = "Pepperoni">Pepperoni</option>
+                    <option value = "Sausage">Sausage</option>
+                    <option value = "Bacon">Bacon</option>
+                    <option value = "Olives">Olives</option>
+                    <option value = "Peppers">Peppers</option>
+                    <option value = "Mushrooms">Mushrooms</option>
+                    </select>
+                </label>
             </form>
         </div>
     )
+    
+}
+function Button () {
+return (
+    <div className="Button">
+            <Switch>
+                <Route path = './components/Finished'>
+                    <Finished pizza />
+                </Route>
+            </Switch>
+            </div>
+    )
 }
 
-export default Order
+export default {Order, Button}

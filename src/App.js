@@ -6,7 +6,7 @@ import Order from "./components/Order"
 import "./App.css";
 
 const formSchema = yup.object().shape({
-  Size: yup.string(). oneOf(["10 inch", "14inch", "18inch"], "Size is required"),
+  Size: yup.string(). oneOf(["10 inch", "14 inch", "18 inch"], "Size is required"),
   Crust: yup.string(). oneOf(["Hand Tossed", "Thin", "Gluten Free", "Stuffed"],"Crust is required"),
   Sauce: yup.string(). oneOf(["Classic", "BBQ", "Ranch", "Olive Oil"],"Sauce is required"),
   Cheese: yup.string(). oneOf(["House Blend", "Extra Cheese"],"Cheese is required"),
