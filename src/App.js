@@ -3,6 +3,9 @@ import {Link, Switch, Route} from "react-router-dom"
 import Finished from "./components/Finished"
 import Order from "./components/Order"
 import "./App.css";
+import schema from '../validation/forSchema'
+import * as yup from 'yup'
+import axios from "axios";
 
 
 
@@ -41,7 +44,8 @@ const [disabled, setDisabled] = (true)
     </header>
     <main>
       <Switch>
-      <Route path = '/Order/:model'><Order/>
+      <Route path = "/Order">
+        <Order/>
       </Route>
       </Switch>
     </main>

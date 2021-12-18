@@ -1,16 +1,16 @@
 import { values } from "cypress/types/lodash"
 import React from "react"
-import { useParams, onChange, Switch, Route } from "react-router-dom"
+import { onChange, Switch, Route } from 'react-router-dom'
 import Finished from "./components/Finished"
 
 const Order = (props) => {
     console.log(props)
 
-    const {model} = useParams()
+    
 
     return (
         <div className = "orderForm">
-            Order form for model {model}
+            Order form for model
             <form>
                 <label>
                     Size:
@@ -92,7 +92,7 @@ const Order = (props) => {
             </form>
             <Switch>
                 <Route path = '/Finished'>
-                    <Finished pizza = {pizza}/>
+                    <Finished/>
                 </Route>
             </Switch>
         </div>
