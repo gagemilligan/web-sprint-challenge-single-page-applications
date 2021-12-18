@@ -1,5 +1,6 @@
+import { values } from "cypress/types/lodash"
 import React from "react"
-import { Switch, useParams, Route } from "react-router-dom"
+import { useParams, onChange, Switch, Route } from "react-router-dom"
 import Finished from "./components/Finished"
 
 const Order = (props) => {
@@ -13,7 +14,9 @@ const Order = (props) => {
             <form>
                 <label>
                     Size:
-                    <select name = "Size" id = "Size">
+                    <select
+                    onChange = {onChange}
+                    value = {values.Size}>
                         <option value = "10 inch">10 inch</option>
                         <option value = "14 inch">14 inch</option>
                         <option value = "18 inch">18 inch</option>
@@ -21,7 +24,9 @@ const Order = (props) => {
                 </label>
                 <label>
                     Crust:
-                    <select name = "Crust" id = "Crust">
+                    <select
+                    onChange = {onChange}
+                    value = {values.Crust}>
                         <option value = "Hand Tossed">Hand Tossed</option>
                         <option value = "Thin">Thin</option>
                         <option value = "Gluten Free">Gluten Free</option>
@@ -29,7 +34,9 @@ const Order = (props) => {
                     </select>
                 </label>
                 <label>
-                    <select name = "Sauce" id = "Sauce">
+                    <select
+                    onChange = {onChange}
+                    value = {values.Sauce}>
                         <option value = "Classic">Classic</option>
                         <option value = "BBQ">BBQ</option>
                         <option value = "Ranch">Ranch</option>
@@ -37,36 +44,62 @@ const Order = (props) => {
                     </select>
                 </label>
                 <label>
-                    <select name = "Sauce" id = "Sauce">
+                    <select
+                    onChange = {onChange}
+                    value = {values.Cheese}>
                     <option value = "House Blend">House Blend</option>
                     <option value = "Extra Cheese">Extra Cheese</option>
                     </select>
                 </label>
                 <label>
-                    <select name = "Toppings" id = "Toppings">
-                    <option value = "Pepperoni">Pepperoni</option>
-                    <option value = "Sausage">Sausage</option>
-                    <option value = "Bacon">Bacon</option>
-                    <option value = "Olives">Olives</option>
-                    <option value = "Peppers">Peppers</option>
-                    <option value = "Mushrooms">Mushrooms</option>
-                    </select>
+                    <input
+                    type = 'checkbox'
+                    name = 'Pepperoni'
+                    checked ={values.Pepperoni}
+                    onChange={onChange}
+                    />
+                    <input
+                    type = 'checkbox'
+                    name = 'Sausage'
+                    checked ={values.Sausage}
+                    onChange={onChange}
+                    />
+                    <input
+                    type = 'checkbox'
+                    name = 'Bacon'
+                    checked ={values.Bacon}
+                    onChange={onChange}
+                    />
+                    <input
+                    type = 'checkbox'
+                    name = 'Olives'
+                    checked ={values.Olives}
+                    onChange={onChange}
+                    />
+                    <input
+                    type = 'checkbox'
+                    name = 'Peppers'
+                    checked ={values.Peppers}
+                    onChange={onChange}
+                    />
+                    <input
+                    type = 'checkbox'
+                    name = 'Mushrooms'
+                    checked ={values.Mushrooms}
+                    onChange={onChange}
+                    />
                 </label>
             </form>
+            <Switch>
+                <Route path = '/Finished'>
+                    <Finished pizza = {pizza}/>
+                </Route>
+            </Switch>
         </div>
     )
     
 }
-function Button () {
-return (
-    <div className="Button">
-            <Switch>
-                <Route path = './components/Finished'>
-                    <Finished pizza />
-                </Route>
-            </Switch>
-            </div>
-    )
-}
 
-export default {Order, Button}
+
+
+export default Order

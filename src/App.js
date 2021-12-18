@@ -1,17 +1,10 @@
 import React, { useState } from "react";
 import {Link, Switch, Route} from "react-router-dom"
-import * as yup from "yup"
 import Finished from "./components/Finished"
 import Order from "./components/Order"
 import "./App.css";
 
-const formSchema = yup.object().shape({
-  Size: yup.string(). oneOf(["10 inch", "14 inch", "18 inch"], "Size is required"),
-  Crust: yup.string(). oneOf(["Hand Tossed", "Thin", "Gluten Free", "Stuffed"],"Crust is required"),
-  Sauce: yup.string(). oneOf(["Classic", "BBQ", "Ranch", "Olive Oil"],"Sauce is required"),
-  Cheese: yup.string(). oneOf(["House Blend", "Extra Cheese"],"Cheese is required"),
-  Toppings: yup.string(). oneOf(["Pepperoni", "Sausage", "Bacon", "Olives", "Peppers", "Mushrooms"]),
-})
+
 
 const initialOrderForm = {
   Size: "",
